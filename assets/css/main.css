@@ -1,0 +1,235 @@
+.header{
+    height: 120px;
+    background-image: linear-gradient(0, #fe6133, #ee4d2d);
+}
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.header__navbar-list{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 4px;
+}
+.header__navbar-item{
+    margin: 0 8px;
+    position: relative;
+    min-height: 26px;
+}
+
+
+.header__navbar-item,
+.header__navbar-item-link{
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white--color);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.header__navbar-item,
+.header__navbar-item-link,
+.header__navbar-icon-link {
+    display: inline-flex;
+    align-items: center ;
+}
+
+.header__navbar-item:first-child:hover,
+.header__navbar-item-link:hover, 
+.header__navbar-icon-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+.header__navbar-item--strong{
+    font-weight: 900;
+}
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    border-left: 1px solid #FB9086;
+    height: 16px;
+    position: absolute;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header__navbar-icon-link {
+    color: var(--white--color);
+    text-decoration: none;
+}
+.header__navbar--icon {
+    font-size: 1.8rem;
+    margin: 0 5px;
+}
+.header__navbar-title--no-pointer {
+    cursor: text;
+    color: var(--white--color);
+}
+/* Header QR code */
+.header__qr {
+    width: 186px;
+     background-color: var(--white--color);
+     position: absolute;
+     left: 0;
+     top: 118%;
+     padding: 8px;
+     border-radius: 2px;
+     display: none;
+     animation: fadeIn ease-in 0.5s;
+}
+.header__qr::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    top: -16px;
+}
+/* hover để hiện thông báo và qr */
+.header__navbar-item--has-qr:hover .header__qr{
+    display: block;
+}
+
+.header__notify-has-notify:hover .header__notify {
+    display: block;
+}
+.header__qr-img {  
+    width: 100%;
+}
+
+.header__qr-apps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__qr-download-img {
+    height: 16px;
+}
+.header__qr-link:nth-child(1){
+    margin-left: 10px;
+}
+/* Phần thông báo của header */
+.header__notify {
+    position: absolute;
+    top: 118%;
+    width: 404px;
+    right: 0;
+    border: 1px solid #D3D3D3;
+    background-color: var(--white--color);
+    cursor: default;
+    transform-origin: 90% top;
+    animation: headerNotifyGrowth ease-in 0.2s ;
+    display: none;
+    will-change: opacity transform;  /*được dùng để tối ưu opacity và transform cho header__notify*/
+}
+
+.header__notify::before {
+    content: "";
+    border-width: 20px 25px;
+    border-style: solid;
+    border-color: transparent transparent var(--white--color) transparent;
+    position: absolute;
+    right: 2px;
+    top: -30px;
+}
+
+.header__notify::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 90px;
+    background-color: transparent;
+    top: -17px;
+    right: 0;
+}
+@keyframes headerNotifyGrowth {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.header__notify-header {
+    height: 40px;
+    background-color: var(--white--color);
+}
+.header__notify-header h3 {
+    color: #666;
+    margin: 0 0 0 12px;
+    line-height: 40px;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.header__notify-list {
+    padding-left: 0;
+}
+
+.header__notify-item {
+
+}
+
+/* Khi người dùng đẫ click vào xem */
+.header__notify-item--viewed {
+    background-color: rgba(238, 77, 45,0.1);
+
+} 
+
+.header__notify-link {
+    display: flex;
+    width: 100%;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.header__notify-item:hover {
+    background-color: #f7f7f7;
+}
+
+.header__notify-img {
+    width: 48px;
+    object-fit: contain;
+}
+
+.header__notify-info {
+    padding: 1rem;
+}
+
+.header__notify-name {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--black--color);
+    margin: 0px 0px 5px;
+    line-height: 1.8rem;
+}   
+
+.header__notify-descriotion {
+    display: block;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.9);  
+    line-height: 1.6rem;
+}
+
+.header__notify-footer {
+    
+}
+
+.header__notify-footer {
+    display: flex;
+}
+.header__notify-footer-btn {
+    text-decoration: none;
+    color: var(--text--color);
+    width: 100%;
+    padding: 8px 0;
+    font-weight: 800;
+    text-align: center;
+}
