@@ -38,6 +38,16 @@ html{
     }
 }
 
+@keyframes growth {
+    form {
+        transform: scale(var(--growth-form));
+    }
+    to {
+        transform: scale(var(--growth-to));
+
+    }
+}
+
 /* Modal */
 .modal {
     display: flex;
@@ -46,6 +56,7 @@ html{
     right: 0;
     bottom: 0;
     left: 0;
+    animation: fadeIn linear 0.2s;
 }
 .modal__overlay {
     position: absolute;
@@ -54,12 +65,12 @@ html{
     background-color: rgba(0, 0, 0, 0.4);
 }
 .modal__body {
-    width: 500px;
+    --growth-form: 0.7;
+    --growth-to: 1;
     margin: auto;
-    background-color: var(--white--color);
     position: relative ;
-    border-radius: 4px;
     z-index: 1  ;
+    animation: growth linear 0.1s;
 }
 /* Button style */
 .btn {
@@ -68,8 +79,33 @@ html{
     border: none;
     border-radius: 3px;
     font-size: 1.5rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7rem;
+}
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 14px;
+    padding: 0 8px;
+}
+
+.btn.btn--nomal:hover {
+    background-color: rgba(0, 0, 0, 0.15);
 }
 .btn.btn--primary {
     background-color: var(--primary--color);
     color: var(--white--color);
 }
+
+/* Nút vô hiệu hoá dành cho backend */
+.btn.btn--disable {
+    color: #939393;
+    cursor: pointer;
+    background-color: #c3c3c3;
+}
+
